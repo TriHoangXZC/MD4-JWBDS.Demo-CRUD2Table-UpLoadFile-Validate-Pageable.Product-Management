@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+</head>
+<body>
+<h1>Edit category</h1>
+<a th:href="@{/categories/list}">Back to list category</a>
+<form th:action="@{/categories/edit/__${category.id}__}" method="post" th:object="${category}">
+    <tr>
+        <td>Name</td>
+        <td><input type="text" th:field="*{name}"></td>
+        <td><p style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><input type="submit" value="Edit"></td>
+    </tr>
+</form>
+</body>
+</html>

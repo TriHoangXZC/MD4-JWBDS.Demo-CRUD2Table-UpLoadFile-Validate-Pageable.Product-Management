@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>List products</h1>
+<a th:href="@{/categories/list}">List category</a>
+<table>
+    <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Price</td>
+        <td>Description</td>
+        <td>Image</td>
+        <td>Category</td>
+    </tr>
+    <tr th:each="product : ${products}">
+        <td th:text="${product.id}"></td>
+        <td><a th:href="@{/products/__${product.id}__}" th:text="${product.name}"></a></td>
+        <td th:text="${product.price}"></td>
+        <td th:text="${product.description}"></td>
+        <td><img th:src="@{/image/__${product.image}__}" alt="" height="100"></td>
+        <td th:if="${product.category}" th:text="${product.category.name}"></td>
+    </tr>
+</table>
+<!--<div>-->
+<!--    <a th:href="@{'/categories/view/'+${id}(page=${products.number - 1})}" th:if="${products.hasPrevious()}">Previous</a>-->
+<!--    <span th:text="${products.number + 1}"></span>/<span th:text="${products.totalPages}"></span>-->
+<!--    <a th:href="@{'/categories/view/'+${id}(page=${products.number + 1})}" th:if="${products.hasNext()}">Next</a>-->
+<!--</div>-->
+</body>
+</html>
