@@ -1,6 +1,6 @@
 package com.codegym.config;
 
-import com.codegym.config.sercurity.SercurityConfig;
+import com.codegym.config.security.SecurityConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class AppInit extends AbstractAnnotationConfigDispatcherServletInitializer {
@@ -11,7 +11,7 @@ public class AppInit extends AbstractAnnotationConfigDispatcherServletInitialize
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class[] {SercurityConfig.class};
+        return new Class[] {SecurityConfig.class};
     }
 
     @Override
